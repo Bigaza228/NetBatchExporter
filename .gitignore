@@ -1,0 +1,35 @@
+## Build and output files
+bin/
+obj/
+out/
+
+## Visual Studio & VS Code temporary files
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.user
+*.suo
+*.userosenv
+*.sln.docstates
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosenv
+
+## Dynamic Link Libraries & Executables
+*.dll
+*.exe
+*.pdb
+*.cache
+
+## Local database files
+*.mdf
+*.ldf
+
+## OS metadata files
+.DS_Store
+Thumbs.db
