@@ -1,10 +1,10 @@
-namespace NetBatchExporter.MetricRecord;
+namespace NetBatchExporter;
 
 public record MetricRecord
-(
-    DateTime LogTime,
-    string LogLevel,
-    string LogName,
-    string? Description,
-    double? DurationInMs
-);
+{
+    public DateTime LogTime;
+    public string LogLevel;
+    public string LogName;
+    public string? Description;
+    public double? DurationInMs;
+}
