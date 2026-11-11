@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace NetBatchExporter;
 
@@ -13,9 +14,33 @@ public class DBMetricExporter : IExporter
         this.serverAddress = serverAddress;
     }
 
-//The data-sending method will be implemented later.
+    private void SendInBd(List<MetricRecord> metrics)
+    {
+        
+    }
+
+    private void SaveInFile(List<MetricRecord> metrics)
+    {
+        var backUpFiles = metrics.Select(p => $"{p.LogTime};{p.LogLevel};{p.LogName};{p.Description};{p.DurationInMs}");
+        File.WriteAllLines(".\\BackUp\\reserve.txt", backUpFiles);
+    }
+
     public void ExportData(List<MetricRecord> metrics)
     {
-        throw new NotImplementedException();
+        try
+        {
+            SendInBd(metrics);
+        } catch(Exception DbEx)
+        {
+            Console.WriteLine($"Не получилось отправить логи в бд: {DbEx.Message}");
+            try
+            {
+                SaveInFile(metrics);
+            } catch(Exception FileEx)
+            {
+                Console.WriteLine($"Не получилось отправить логи в бд: {FileEx.Message}");
+                Console.WriteLine("Потеря данных");
+            }
+        }
     }
 }
