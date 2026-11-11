@@ -1,5 +1,6 @@
 namespace NetBatchExporter;
 
+//structure for storing metrics
 public record MetricRecord
 {
     public DateTime LogTime;

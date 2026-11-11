@@ -1,5 +1,7 @@
 namespace NetBatchExporter;
 
+
+//a class with a method that returns random metric records, for testing purposes
 public static class MetricsGeneration
 {
     private static readonly string[] LogLevels = {"INFO", "WARNING", "ERROR", "CRITICAL"};
